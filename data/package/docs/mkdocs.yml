@@ -1,0 +1,34 @@
+site_name: App
+# site_description: 'App description'
+# site_url: 'https://example.com'
+# site_author: 'You'
+site_dir: html
+docs_dir: src
+# repo_url: 'https://github.com/spartan/component'
+# repo_name: 'GitHub'
+# remote_branch: 'master'
+# remote_name: 'origin'
+theme:
+  name: 'material'
+  palette:
+    primary: 'blue'
+    accent: 'blue'
+# extra_css:
+#   - assets/extra.css
+# extra_javascript:
+#   - assets/extra.js
+# extra:
+#   version: 1.0
+markdown_extensions:
+  - codehilite
+  - admonition
+  - footnotes
+  - 'pymdownx.emoji'
+  - 'pymdownx.tasklist'
+  - 'pymdownx.details'
+  - toc:
+      permalink: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+nav:
+  - Intro: index.md

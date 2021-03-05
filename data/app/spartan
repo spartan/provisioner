@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$status = (new \Spartan\Console\Application())
+    ->withCommands(require_once __DIR__ . '/config/commands.php')
+    ->withDefaultStyles()
+    ->run();
+
+exit($status);

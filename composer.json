@@ -1,0 +1,48 @@
+{
+    "name": "spartan/provisioner",
+    "description": "Spartan Provisioner",
+    "type": "library",
+    "keywords": [
+        "library",
+        "spartan",
+        "provisioner"
+    ],
+    "homepage": "https://spartanphp.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Iulian N.",
+            "email": "iulian@spartanphp.com",
+            "homepage": "https://spartanphp.com",
+            "role": "developer"
+        }
+    ],
+    "support": {
+        "email": "support@spartanphp.com",
+        "docs": "https://spartanphp.com"
+    },
+    "require": {
+        "php": ">=7.4",
+        "spartan/console": "^0.1.0",
+        "ircmaxell/random-lib": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spartan\\Provisioner\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "spartan": {
+            "install": {
+                "commands": [
+                    "__DIR__ . '/../vendor/spartan/provisioner/src/Command'"
+                ]
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
