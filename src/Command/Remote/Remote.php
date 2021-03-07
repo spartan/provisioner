@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Spartan\Common\Command\Remote;
+namespace Spartan\Provisioner\Command\Remote;
 
 use Spartan\Console\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -38,6 +38,24 @@ class Remote extends Command
         $this->process($cmd, $output, $remote);
 
         return 0;
+    }
+
+    public static function forEnv(string $envName, string $file = '/home/$USER/.ssh/config')
+    {
+        self::loadEnv();
+
+        $remoteString = (string)getenv(strtoupper("APP_REMOTE_{$envName}"));
+        [$remoteServer, $remotePath] = explode(':', $remoteString) + ['', '~'];
+
+        $remote = self::sshRemotes($file)[$remoteServer] ?? null;
+
+        if (!$remote) {
+            throw new \InvalidArgumentException('Unknown remote.');
+        }
+
+        $remote['path'] = $remotePath;
+
+        return $remote;
     }
 
     /**

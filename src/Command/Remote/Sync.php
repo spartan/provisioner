@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Spartan\Common\Command\Remote;
+namespace Spartan\Provisioner\Command\Remote;
 
 use Spartan\Console\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -32,18 +32,8 @@ class Sync extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->loadEnv();
-        $envName      = $input->getOption('env');
-        $remoteString = (string)getenv(strtoupper("APP_REMOTE_{$envName}"));
-        [$remoteServer, $remotePath] = explode(':', $remoteString) + ['', '~'];
-
-        $remote  = Remote::sshRemotes()[$remoteServer] ?? null;
-
-        if (!$remote) {
-            throw new \InvalidArgumentException('Unknown remote.');
-        }
-
-        $remote['path'] = $remotePath;
+        $envName = $input->getOption('env');
+        $remote  = Remote::forEnv($envName);
 
         $excludes = [
             ...['.git', '.idea', 'node_modules', '.env'],
