@@ -1,4 +1,11 @@
 # Changelog
+### [0.1.3](https://github.com/spartan/provisioner/compare/v0.1.2...v0.1.3) (2025-12-19)
+
+
+### Changes
+
+* accept spartan/console:0.2 ([8426e53](https://github.com/spartan/provisioner/commit/8426e537a2dca592fb393414e76a0d74e750c276))
+
 ### [0.1.2](https://github.com/spartan/provisioner/compare/v0.1.1...v0.1.2) (2021-03-07)
 
 
